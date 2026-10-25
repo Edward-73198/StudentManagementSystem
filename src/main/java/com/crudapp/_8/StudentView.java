@@ -17,7 +17,7 @@ public class StudentView extends VerticalLayout {
     private final Grid<Student> grid = new Grid<>(Student.class, false);
 
     private final TextField nameField = new TextField("Student Name");
-    private final TextField emailField = new TextField("Email");
+    private final TextField emailField = new TextField("Email Address");
 
     private Student selectedStudent;
 
@@ -28,7 +28,7 @@ public class StudentView extends VerticalLayout {
 
         grid.addColumn(Student::getId).setHeader("ID");
         grid.addColumn(Student::getName).setHeader("Name");
-        grid.addColumn(Student::getEmail).setHeader("Email");
+        grid.addColumn(Student::getEmail).setHeader("Email Address");
 
         grid.setItems(repository.findAll());
         grid.setSelectionMode(Grid.SelectionMode.SINGLE);
@@ -62,7 +62,7 @@ public class StudentView extends VerticalLayout {
 
     private void addStudent() {
         if (nameField.isEmpty() || emailField.isEmpty()) {
-            Notification.show("Please enter the student's name and email.");
+            Notification.show("Please enter the student's name and email address.");
             return;
         }
 
@@ -74,7 +74,7 @@ public class StudentView extends VerticalLayout {
         refreshGrid();
         clearFields();
 
-        Notification.show("Student added successfully!");
+        Notification.show("Student added successfully!!");
     }
 
     private void updateStudent() {
@@ -84,7 +84,7 @@ public class StudentView extends VerticalLayout {
         }
 
         if (nameField.isEmpty() || emailField.isEmpty()) {
-            Notification.show("Please enter the student's name and email.");
+            Notification.show("Please enter the student's name and email address.");
             return;
         }
 
@@ -110,7 +110,7 @@ public class StudentView extends VerticalLayout {
         refreshGrid();
         clearFields();
 
-        Notification.show("Student deleted successfully!");
+        Notification.show("Student deleted successfully!!");
     }
 
     private void refreshGrid() {
